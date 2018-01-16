@@ -1,0 +1,30 @@
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+a {
+  color: black; }
+  a:hover {
+    color: black;
+    text-decoration: none; }
+  a:link {
+    text-decoration: none; }
+  a:visited {
+    color: black; }
+
+.navbar-header button {
+  margin: 0 !important; }
+
+.center-block {
+  float: none !important; }
+
+* {
+  box-sizing: border-box; }
+
+.logo {
+  min-height: 300px; }
+  .logo img {
+    height: 400px; }
+
+/*# sourceMappingURL=main.css.map */
