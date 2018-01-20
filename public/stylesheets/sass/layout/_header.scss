@@ -1,7 +1,28 @@
+.site-nav {
+  &-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 0px;
+
+    a {
+      margin-right: 10px;
+    }
+  }
+}
+
 .logo {
   min-height: 300px;
 
   img {
-      height: 400px;
-    }
+    height: 300px;
+    width: 100%;
+    background-position: center;
+  }
+}
+
+.site-nav {
+  background-color: #F8F8F8;
+  padding: 10px 0;
+  border-radius: 2px;
+  border: 1px solid rgb(235, 233, 233);
 }

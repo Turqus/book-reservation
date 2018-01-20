@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body ng-app="app">
+
+
+    <div class="container">
+
+    <% include partials/header.ejs %>
+
+        <section id="login">
+          <div class="login-wrapper">
+    
+            <div class="row login">
+              <div class="col-md-4 col-xs-9 col-sm-7 center-block">
+                <h1>Logowanie</h1>
+    
+                <% if (error_msg.length > 0) { %>
+                  <div class="alert alert-danger">
+                    <%= error_msg %>
+                  </div>
+                  <% } %>
+    
+                    <form name="login" action="/login" method="post" class="validateInfo" novalidate>
+                      <form-group class="reg-form"  ng-class="{ 'has-error': login.username.$invalid && login.username.$touched }">
+                        <label for="">Nazwa</label>
+                        <span ng-if="login.username.$touched && login.username.$error.required">Login jest wymagany</span>
+                        <span ng-show="login.username.$touched && login.username.$error.maxlength">Za długi login</span>
+                        <input type="text" class="form-control" ng-model="username" name="username" placeholder="Wprowadź login..." ng-required="true" maxlength="20">
+                      </form-group>
+    
+                      <form-group class="reg-form"  ng-class="{ 'has-error': login.password.$invalid && login.password.$touched }">
+                        <label for="">Hasło</label>
+                        <span ng-if="login.password.$touched && login.password.$error.required">Hasło jest wymagane</span>
+                        <span ng-show="login.password.$touched && login.password.$error.minlength">Za krótkie hasło</span>
+                        <span ng-show="login.password.$touched && login.password.$error.maxlength">Za długie hasło</span>
+                        <input type="password" class="form-control" ng-model="password" name="password" placeholder="Wprowadź hasło..." ng-required="true" ng-minlength="3"
+                          maxlength="202">
+                      </form-group>
+    
+                      <button type="submit" class="btn btn-success pull-right" ng-disabled="login.$invalid">Zaloguj się</button>
+                    </form>
+    
+    
+                    <p>Jeśli nie posiadasz konta przejdz do <a href="/register">rejestracji</a></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    
+    
+    
+      <% include partials/footer.ejs %>
+        </body>
+    
+        </html>

@@ -14,29 +14,115 @@
 </head>
 
 <body ng-app="app">
+  <div class="container"> 
 
-  <div class="container">
-    
-    <header>
-      <nav>
-        <div class="col-md-12">
-          login register
-        </div>
-      </nav>
+    <% include partials/header.ejs %>
 
-      <div class="logo">
-        <img src="images/logo.jpg" alt="logo" class="img-responsive">
-      </div>
-    </header>
+
+    <!-- ADDED LAST THREE BOOKS -->
 
     <main>
-      container 3x photo
-    </main>
+      <div class="row">
+        <div class="col-md-12 hg-main">
+            <h1>Ostatnio dodane książki</h1>
+        </div>
+      </div>
 
-    <footer>
-      footer
-    </footer>
+      <div class="main-wrapper">
+        <div class="main-wrapper__books">
+          <div class="row">
+            <div class="col-md-2 main-wrapper__image">
+              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
+            </div>
+            <div class="col-md-10">
+              <div class="main-wrapper__description">
+                <h3>Tytuł: Czysty Kod</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra, elit
+                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet elit
+                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet quis,
+                  malesuad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="main-wrapper">
+        <div class="main-wrapper__books">
+          <div class="row">
+            <div class="col-md-2 main-wrapper__image">
+              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
+            </div>
+            <div class="col-md-10">
+              <div class="main-wrapper__description">
+                <h3>Tytuł: Czysty Kod</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra, elit
+                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet elit
+                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet quis,
+                  malesuad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-wrapper">
+        <div class="main-wrapper__books">
+          <div class="row">
+            <div class="col-md-2 main-wrapper__image">
+              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
+            </div>
+            <div class="col-md-10">
+              <div class="main-wrapper__description">
+                <h3>Tytuł: Czysty Kod</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra, elit
+                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet elit
+                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet quis,
+                  malesuad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- ABOUT US -->
+      <div class="main-wrapper__aboutUs hg-center">
+        <h1>O nas</h1>
+        <div class="aboutUs-wrapper">
+          <div class="row">
+            <div class="col-md-4">
+              <h4 class="aboutUs-hg">Profesjonalność</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="aboutUs-hg">Oryginalność</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="aboutUs-hg">Miła obsługa</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
   </div>
+
+
+
+<% include partials/footer.ejs %>
 
 </body>
 

@@ -3,5 +3,12 @@
 
 
 
-// BASE
+// layout
 @import 'sass/layout/_header.scss';
+@import 'sass/layout/_footer.scss';
+
+
+// pages
+@import 'sass/pages/_index.scss';
+@import 'sass/pages/_login.scss';
+

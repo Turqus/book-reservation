@@ -22,9 +22,69 @@ a {
 * {
   box-sizing: border-box; }
 
+.col-md-12 {
+  padding: 0px; }
+
+.row {
+  margin: 0; }
+
+.site-nav-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0px; }
+  .site-nav-wrapper a {
+    margin-right: 10px; }
+
 .logo {
   min-height: 300px; }
   .logo img {
-    height: 400px; }
+    height: 300px;
+    width: 100%;
+    background-position: center; }
+
+.site-nav {
+  background-color: #F8F8F8;
+  padding: 10px 0;
+  border-radius: 2px;
+  border: 1px solid #ebe9e9; }
+
+.footer-wrapper {
+  background-color: #a77415;
+  width: 100%;
+  padding: 20px; }
+  .footer-wrapper span {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px; }
+
+.main-wrapper__books {
+  padding: 10px; }
+.main-wrapper__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.aboutUs-wrapper {
+  padding: 50px;
+  margin-bottom: 50px; }
+
+.hg-center {
+  text-align: center; }
+
+.hg-main {
+  padding: 15px 0; }
+
+.aboutUs-hg {
+  padding: 15px; }
+
+.login {
+  margin-top: 30px;
+  height: 37.8vh; }
+  .login h1 {
+    text-align: center; }
+  .login button {
+    margin-top: 15px; }
+  .login p {
+    margin-top: 70px; }
 
 /*# sourceMappingURL=main.css.map */
