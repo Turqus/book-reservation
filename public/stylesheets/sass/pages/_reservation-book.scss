@@ -1,0 +1,17 @@
+.reservation-wrapper {
+  &__books {
+    padding: 20px;
+  }
+}
+
+.reservation-form {
+  span {
+    display: block;
+  }
+  span:nth-child(2) {
+    margin-bottom: 10px;
+  }
+  textarea {
+    max-width: 100%;
+  }
+}

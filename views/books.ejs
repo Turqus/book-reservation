@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body ng-app="app" ng-controller="ListBooksCtrl" ng-init="init()">
+  <div class="container">
+
+    <% include partials/header.ejs %>
+      <!-- LIST BOOKS -->
+      <main>
+        <div class="main-wrapper">
+          <div class="main-wrapper__books">
+
+            <div class="row spg-between" ng-repeat="book in books">
+              <div class="col-md-2 main-wrapper__image">
+                <img src="images/book.jpg" alt="książka pt. {{book.name}}" class="img-responsive">
+              </div>
+
+              <div class="col-md-10">
+                <div class="main-wrapper__description">
+                  <h3>Tytuł: {{book.name}}</h3>
+                  <p>{{book.description}}</p>
+                  <p>Ilość: {{book.quantity}}</p>
+                  <a href="/reservation-book/{{book._id}}/{{book.name}}/{{book.quantity}}" class="btn btn-info">Zarezerwuj</a>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </main>
+  </div>
+
+
+
+  <% include partials/footer.ejs %>
+
+    <script src="/javascripts/controllers/ListBooksController.js"></script>
+</body>
+
+</html>

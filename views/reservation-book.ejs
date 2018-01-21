@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body ng-app="app" ng-controller="reservationBookCtrl" ng-init="init()">
+  <div class="container">
+
+    <% include partials/header.ejs %>
+      <!-- RESERVATION BOOKS -->
+      <main>
+
+        <div class="reservation-wrapper">
+          <div class="reservation-wrapper__books">
+
+            <div class="row">
+              <div class="col-md-4 center-block">
+                <form class="reservation-form"> 
+                        <span>Tytuł rezerwowanej książki:  <b><%= title %> </b></span>
+                        <span>Ilość:  <b><%= quantity %> </b></span>
+                  
+
+
+                  <div class="form-group">
+                      <label for="">Imię</label>
+                      <input type="text" class="form-control" name="firstname" ng-model="reservation.firstname">
+                    </div>
+
+                  <div class="form-group">
+                    <label for="">Nazwisko</label>
+                    <input type="text" class="form-control" name="surname" ng-model="reservation.surname">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Adres</label>
+                    <textarea name="address" cols="4" rows="3" class="form-control" ng-model="reservation.address"></textarea>
+                  </div>
+
+                  <button class="btn btn-info" ng-click="reservationBook(reservation)">Zarezerwuj</button>
+                </form>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </main>
+  </div>
+
+
+
+  <% include partials/footer.ejs %>
+
+    <script src="/javascripts/controllers/reservationBookController.js"></script>
+</body>
+
+</html>

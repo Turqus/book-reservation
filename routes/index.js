@@ -11,4 +11,11 @@ router.get('/login', function(req, res, next) {
   res.render('login', { title: 'Logowanie', error_msg: [] });
 });
 
+/* GET home page. */
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Rejestracja', error_msg: [] });
+});
+
+
+
 module.exports = router;

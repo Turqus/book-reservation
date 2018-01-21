@@ -87,4 +87,17 @@ a {
   .login p {
     margin-top: 70px; }
 
+.spg-between {
+  margin-bottom: 25px; }
+
+.reservation-wrapper__books {
+  padding: 20px; }
+
+.reservation-form span {
+  display: block; }
+.reservation-form span:nth-child(2) {
+  margin-bottom: 10px; }
+.reservation-form textarea {
+  max-width: 100%; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body ng-app="app" ng-controller="addBookCtrl" ng-init="init()">
+  <div class="container"> 
+
+    <% include partials/header.ejs %>
+
+
+    <!-- LIST BOOKS -->
+
+    <main>
+ 
+ 
+
+      <div class="main-wrapper">
+ 
+      </div>
+
+
+
+
+
+      <form>
+
+        <div class="form-group">
+          <label for="">Nazwa</label>
+          <input type="text" class="form-control" name="name" ng-model="book.name">
+        </div>
+
+        <div class="form-group">
+            <label for="">Opis</label>
+            <input type="text" class="form-control" name="description" ng-model="book.description">
+          </div>
+  
+          <div class="form-group">
+              <label for="">Ilość</label>
+              <input type="number" class="form-control" name="quantity" ng-model="book.quantity">
+            </div>
+    
+    
+            <button class="btn btn-success" ng-click="addBook(book)">Dodaj</button>
+  
+      </form>
+
+
+ 
+      </div>
+    </main>
+  </div>
+
+
+
+<% include partials/footer.ejs %>
+
+
+
+<script src="/javascripts/controllers/addBookController.js"></script>
+</body>
+
+</html>
