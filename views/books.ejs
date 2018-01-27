@@ -32,7 +32,8 @@
                   <h3>Tytuł: {{book.name}}</h3>
                   <p>{{book.description}}</p>
                   <p>Ilość: {{book.quantity}}</p>
-                  <a href="/reservation-book/{{book._id}}/{{book.name}}/{{book.quantity}}" class="btn btn-info">Zarezerwuj</a>
+                  <a href="/reservation-book/{{book._id}}/{{book.name}}" class="btn btn-info">Zarezerwuj</a>
+                  <a href="/book/details/{{book._id}}" class="btn btn-success">Zobacz</a>
                 </div>
               </div>
             </div>

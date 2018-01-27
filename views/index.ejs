@@ -14,7 +14,7 @@
 </head>
 
 <body ng-app="app">
-  <div class="container"> 
+  <div class="container"  ng-controller="ListBooksCtrl" ng-init="init()"> 
 
     <% include partials/header.ejs %>
 
@@ -30,65 +30,44 @@
 
       <div class="main-wrapper">
         <div class="main-wrapper__books">
-          <div class="row">
+
+
+
+
+
+          <div class="row main-wrapper__item" ng-repeat="book in books | limitTo:2">
+
+              <!-- col-md-2 -->
             <div class="col-md-2 main-wrapper__image">
               <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
             </div>
-            <div class="col-md-10">
-              <div class="main-wrapper__description">
-                <h3>Tytuł: Czysty Kod</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
-                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra, elit
-                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet elit
-                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet quis,
-                  malesuad</p>
-              </div>
+
+              <!-- col-md-10 -->
+            <div class="col-md-10 main-wrapper__description">
+          
+                <p>Tytuł: <b>{{book.name}}</b></p>
+                <p>Wydawnictwo: {{book.publishingHouse}} </p>
+                <p>Rok Wydania: {{book.year}} </p>
+                <p>Ilość Stron: {{book.sites}} </p>
+                <p>Ilość Dostępnych Książek: {{book.quantity}} </p>
+                <p>Opis: {{book.description}} </p>
+                  
+               <a href="/book/details/{{book._id}}" class="btn btn-success">Zobacz</a>
+            
             </div>
+            
           </div>
+
+
+
+
+
         </div>
       </div>
 
 
-      <div class="main-wrapper">
-        <div class="main-wrapper__books">
-          <div class="row">
-            <div class="col-md-2 main-wrapper__image">
-              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
-            </div>
-            <div class="col-md-10">
-              <div class="main-wrapper__description">
-                <h3>Tytuł: Czysty Kod</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
-                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra, elit
-                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet elit
-                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet quis,
-                  malesuad</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="main-wrapper">
-        <div class="main-wrapper__books">
-          <div class="row">
-            <div class="col-md-2 main-wrapper__image">
-              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
-            </div>
-            <div class="col-md-10">
-              <div class="main-wrapper__description">
-                <h3>Tytuł: Czysty Kod</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
-                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra, elit
-                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet elit
-                  ipsum maximus nulla, vel egestas metus tortor at lorem. Nulla erat tellus, hendrerit id imperdiet quis,
-                  malesuad</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+ 
+ 
 
 
       <!-- ABOUT US -->
@@ -124,6 +103,9 @@
 
 <% include partials/footer.ejs %>
 
+
+
+<script src="/javascripts/controllers/ListBooksController.js"></script>
 </body>
 
 </html>

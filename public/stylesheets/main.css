@@ -28,12 +28,25 @@ a {
 .row {
   margin: 0; }
 
-.site-nav-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  padding: 5px 0px; }
-  .site-nav-wrapper a {
-    margin-right: 10px; }
+h3 {
+  padding: 0;
+  margin: 0; }
+
+.site-nav {
+  display: flex; }
+  .site-nav-left-wrapper {
+    width: 50%;
+    padding: 5px 0px;
+    margin-left: 10px; }
+  .site-nav-right-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 0px; }
+    .site-nav-right-wrapper span {
+      margin-right: 10px; }
+    .site-nav-right-wrapper a {
+      margin-right: 10px; }
 
 .logo {
   min-height: 300px; }
@@ -57,16 +70,20 @@ a {
     text-align: center;
     margin-bottom: 5px; }
 
+.main-wrapper__item {
+  margin-bottom: 55px; }
 .main-wrapper__books {
   padding: 10px; }
 .main-wrapper__description {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
+  min-height: 100px;
+  max-width: 100%; }
+  .main-wrapper__description a {
+    margin-top: 10px;
+    width: 90px; }
 
 .aboutUs-wrapper {
   padding: 50px;
-  margin-bottom: 50px; }
+  margin-bottom: 20px; }
 
 .hg-center {
   text-align: center; }
@@ -76,6 +93,9 @@ a {
 
 .aboutUs-hg {
   padding: 15px; }
+
+.col-md-10 {
+  word-wrap: break-word; }
 
 .login {
   margin-top: 30px;

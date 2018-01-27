@@ -46,10 +46,25 @@
           </div>
   
           <div class="form-group">
+              <label for="">Wydawnictwo</label>
+              <input type="text" class="form-control" name="publishingHouse" ng-model="book.publishingHouse">
+            </div>
+    
+          <div class="form-group">
               <label for="">Ilość</label>
               <input type="number" class="form-control" name="quantity" ng-model="book.quantity">
             </div>
     
+            <div class="form-group">
+                <label for="">Rok</label>
+                <input type="number" class="form-control" name="year" ng-model="book.year">
+              </div>
+
+              <div class="form-group">
+                  <label for="">Ilość stron</label>
+                  <input type="number" class="form-control" name="sites" ng-model="book.sites">
+                </div>
+      
     
             <button class="btn btn-success" ng-click="addBook(book)">Dodaj</button>
   

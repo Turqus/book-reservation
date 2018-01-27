@@ -5,6 +5,8 @@ var Book = require('../model/book.model');
 
 
 router.get('/list-books', (req, res) => {
+ 
+
   Book.find({})
     .then((books) => {
       res.json(books);
@@ -27,9 +29,7 @@ router.get('/add-book', function (req, res, next) {
 });
 
 
-router.post('/add-book', (req, res) => {
-  console.log(req.body);
-
+router.post('/add-book', (req, res) => { 
   var book = new Book(req.body.book);
 
   book.save()
@@ -39,6 +39,28 @@ router.post('/add-book', (req, res) => {
     .catch((err) => {
       res.json('not saved')
     })
+});
+
+
+
+/* GET home page. */
+router.get('/reserved-books', function (req, res, next) {
+  res.render('reserved-books', { title: 'Zarezerwowane książki' });
+});
+
+
+
+
+/* GET home page. */
+router.get('/book/details/:id', function (req, res, next) {
+  Book.find({_id : req.params.id})
+  .then(function (book) { 
+    if(book.length > 0) res.render('book-details', { title: 'Dodaj Książke', book: book[0] }); 
+  })
+  .catch((err) => {
+    res.render('error', { title: 'Error 404', message: 'File not found ! 404' });
+  })
+
 });
 
 module.exports = router;

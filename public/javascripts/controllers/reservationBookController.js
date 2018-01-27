@@ -4,12 +4,18 @@
         .controller('reservationBookCtrl', reservationBookCtrl);
 
     function reservationBookCtrl($scope, $http) {
-        $scope.init = () => { 
-
+        $scope.init = (book) => { 
+            $scope.book = JSON.parse(book); 
         }
 
-        $scope.reservationBook = (reservation) => {
-       
+        $scope.reservationBook = (reservation) => { 
+            reservation.idBook = $scope.book._id;
+            reservation.nameBook = $scope.book.name;
+            reservation.quantity = $scope.book.quantity;
+            reservation.description = $scope.book.description;
+            reservation.publishingHouse = $scope.book.publishingHouse;
+            reservation.year = $scope.book.year;
+            reservation.sites = $scope.book.sites;
 
             $http({
                 method: 'POST',

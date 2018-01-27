@@ -11,19 +11,25 @@
     <div class="col-md-12">
       <nav class="site-nav">
 
-        <div class="site-nav-wrapper">
+          <div class="site-nav-left-wrapper">  
+                <a href="/">Strona Główna</a> 
+            </div>
+          <div class="site-nav-right-wrapper"> 
           <a href="/books">Lista Książek</a>
           <% if (!user) { %>
             <a href="/login" class="site-nav__link pull-right">Zaloguj się</a>
             <a href="/register" class="site-nav__link  pull-right">Zarejestruj się</a>
 
             <% } else { %>
-              <a href="/<%= user.username %>">
-                <span>Zalogowany:</span>
+              
+              <a href="/reserved-books">Zarezerwowane książki</a>
+
+ 
+                <span>Zalogowany:
                 <b>
                   <%= user.username %>
-                </b>
-              </a>
+                </b> 
+              </span>
 
               <a href="/logout">Wyloguj</a>
               <% } %>

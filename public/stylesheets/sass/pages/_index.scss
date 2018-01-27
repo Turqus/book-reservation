@@ -1,12 +1,21 @@
 .main-wrapper {
-  &__books {  
-    padding: 10px;
-  } 
+  &__item {
+    margin-bottom: 55px;
+  }
 
-  &__description { 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+  &__books {
+    padding: 10px;
+  }
+
+  &__description {   
+    min-height: 100px;
+    
+  max-width: 100%; 
+
+  a { 
+    margin-top: 10px;
+    width: 90px;
+  }
   }
 
   // &__image {
@@ -15,12 +24,11 @@
   //   max-width: 250px;
   // }
 
-
 }
 
 .aboutUs-wrapper {
   padding: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .hg-center {
@@ -33,4 +41,9 @@
 
 .aboutUs-hg {
   padding: 15px;
+}
+
+.col-md-10 {
+  
+  word-wrap: break-word;
 }
