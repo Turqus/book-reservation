@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body ng-app="app">
+  <div class="container" ng-controller="ListBooksCtrl" ng-init="init()">
+
+    <% include partials/header.ejs %>
+
+
+      <!-- EVENTS -->
+
+      <main>
+        <div class="row">
+          <div class="col-md-12 hg-main">
+            <h1>Wydarzenia</h1>
+          </div>
+        </div>
+
+        <div class="main-wrapper">
+          <div class="main-wrapper__books">
+
+            <div class="row main-wrapper__item">
+              <div class="col-md-2 main-wrapper__image">
+                <h3>18.01.2018</h3>
+              </div>
+              <div class="col-md-10 main-wrapper__description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie libero enim, in pulvinar lorem tincidunt ut.
+                  Etiam eget ex magna. Nulla pretium urna neque, nec lobortis felis lobortis eget. Nulla non lectus iaculis,
+                  blandit ante ac, sodales nisl. Maecenas ac nulla nunc. Ut velit sapien, porta quis neque eu, euismod convallis
+                  risus. Praesent non lacus pretium, dapibus tortor ut, hendrerit augue. Suspendisse turpis nisi, sodales
+                  sed congue vitae, egestas id sapien. Praesent at nulla ac sapien posuere feugiat sit amet et massa. Fusce
+                  ut sodales erat, eu scelerisque tortor.
+                </p>
+              </div>
+            </div>
+
+
+
+            <div class="row main-wrapper__item">
+              <div class="col-md-2 main-wrapper__image">
+                <h3>15.01.2018</h3>
+              </div>
+
+              <div class="col-md-10 main-wrapper__description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie libero enim, in pulvinar lorem tincidunt ut.
+                  Etiam eget ex magna. Nulla pretium urna neque, nec lobortis felis lobortis eget. Nulla non lectus iaculis,
+                  blandit ante ac, sodales nisl. Maecenas ac nulla nunc. Ut velit sapien, porta quis neque eu, euismod convallis
+                  risus. Praesent non lacus pretium, dapibus tortor ut, hendrerit augue. Suspendisse turpis nisi, sodales
+                  sed congue vitae, egestas id sapien. Praesent at nulla ac sapien posuere feugiat sit amet et massa. Fusce
+                  ut sodales erat, eu scelerisque tortor.
+                </p>
+              </div>
+            </div>
+
+
+
+            <div class="row main-wrapper__item">
+              <div class="col-md-2 main-wrapper__image">
+                <h3>12.01.2018</h3>
+              </div>
+
+              <div class="col-md-10 main-wrapper__description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie libero enim, in pulvinar lorem tincidunt ut.
+                  Etiam eget ex magna. Nulla pretium urna neque, nec lobortis felis lobortis eget. Nulla non lectus iaculis,
+                  blandit ante ac, sodales nisl. Maecenas ac nulla nunc. Ut velit sapien, porta quis neque eu, euismod convallis
+                  risus. Praesent non lacus pretium, dapibus tortor ut, hendrerit augue. Suspendisse turpis nisi, sodales
+                  sed congue vitae, egestas id sapien. Praesent at nulla ac sapien posuere feugiat sit amet et massa. Fusce
+                  ut sodales erat, eu scelerisque tortor.
+                </p>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+
+
+
+      </main>
+  </div>
+
+
+
+  <% include partials/footer.ejs %>
+
+
+
+    <script src="/javascripts/controllers/ListBooksController.js"></script>
+</body>
+
+</html>

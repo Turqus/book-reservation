@@ -42,14 +42,11 @@ router.post('/add-book', (req, res) => {
 });
 
 
-
 /* GET home page. */
 router.get('/reserved-books', function (req, res, next) {
-  res.render('reserved-books', { title: 'Zarezerwowane książki' });
+  if(req.user) res.render('reserved-books', { title: 'Zarezerwowane książki' });
+  else res.redirect('/');
 });
-
-
-
 
 /* GET home page. */
 router.get('/book/details/:id', function (req, res, next) {
@@ -60,7 +57,6 @@ router.get('/book/details/:id', function (req, res, next) {
   .catch((err) => {
     res.render('error', { title: 'Error 404', message: 'File not found ! 404' });
   })
-
 });
 
 module.exports = router;

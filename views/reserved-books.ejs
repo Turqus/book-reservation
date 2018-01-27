@@ -14,96 +14,70 @@
 </head>
 
 <body ng-app="app">
-  <div class="container"  ng-controller="ReservedBooksCtrl" ng-init="init()"> 
+  <div class="container" ng-controller="ReservedBooksCtrl" ng-init="init()">
 
     <% include partials/header.ejs %>
 
 
-    <!-- ADDED LAST THREE BOOKS -->
+      <!-- ADDED LAST THREE BOOKS -->
 
-    <main>
-      <div class="row">
-        <div class="col-md-12 hg-main">
+      <main>
+        <div class="row">
+          <div class="col-md-12 hg-main">
             <h1>Zarezerwowane książki</h1>
-        </div>
-      </div>
-
-      <div class="main-wrapper">
-        <div class="main-wrapper__books">
-          <div class="row main-wrapper__item" ng-repeat="reservation in reservations">
-         
-            <div class="col-md-2 main-wrapper__image">
-              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
-            </div>
-
-            <!-- <div class="col-md-5">
-              <div class="main-wrapper__description">
-                <h3>Tytuł: {{book.nameBook}}</h3>
-                <p>{{book.description}}</p>
-                  
-                  <a href="/book/details/{{book._id}}" class="btn btn-success pull-right">Zobacz</a>
-              </div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="main-wrapper__description">
-                  <h3>Tytuł: {{book.nameBook}}</h3>
-                  <p>{{book.description}}</p>
-                    
-                    <a href="/book/details/{{book._id}}" class="btn btn-success pull-right">Zobacz</a>
-                </div>
-              </div> -->
-
-              <div class="col-md-10">
-                  <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Dane do odbioru</th>
-                          <th>Adres</th>
-                          <th>Nazwa książki</th>
-                          <th>Wydawnictwo</th> 
-                          <th>Rok wydania</th> 
-                          <th>Akcja</th> 
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>{{reservation.firstname}}  {{reservation.surname}}</td>
-                          <td>{{reservation.address}}</td>
-                          <td>{{reservation.nameBook}}</td>
-                          <td>{{reservation.publishingHouse}}</td>                      
-                          <td>{{reservation.year}}</td>                               
-                          <td><button class="btn btn-sm btn-danger" ng-click="cancelReservation(reservation)">Anuluj Rezerwację</button></td>                      
-                        </tr>
-                      </tbody>
-                    </table>
-              </div>
-             
-
-
-
           </div>
         </div>
-      </div>
+
+        <div class="main-wrapper">
+          <div class="main-wrapper__books">
+            <div class="row main-wrapper__item" ng-repeat="reservation in reservations">
+
+              <div class="col-md-2 main-wrapper__image">
+                <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
+              </div>
 
 
- 
- 
-
-
- 
-    </main>
+              <div class="col-md-10">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Dane do odbioru</th>
+                      <th>Adres</th>
+                      <th>Nazwa książki</th>
+                      <th>Wydawnictwo</th>
+                      <th>Rok wydania</th>
+                      <th>Akcja</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>{{reservation.firstname}} {{reservation.surname}}</td>
+                      <td>{{reservation.address}}</td>
+                      <td>{{reservation.nameBook}}</td>
+                      <td>{{reservation.publishingHouse}}</td>
+                      <td>{{reservation.year}}</td>
+                      <td>
+                        <button class="btn btn-sm btn-danger" ng-click="cancelReservation(reservation)">Anuluj Rezerwację</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
   </div>
 
 
 
-<% include partials/footer.ejs %>
+  <% include partials/footer.ejs %>
 
 
 
-<script src="/javascripts/controllers/ReservedBooksController.js"></script>
+    <script src="/javascripts/controllers/ReservedBooksController.js"></script>
 </body>
 
 </html>

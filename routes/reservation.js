@@ -5,9 +5,6 @@ var Book = require('../model/book.model');
 var Reservation = require('../model/reservation.model');
 
 
-
-
-
 router.get('/reservation-list', (req, res) => {
   Reservation.find({ idUser: req.user._id })
     .then(function (books) {
@@ -19,21 +16,19 @@ router.get('/reservation-list', (req, res) => {
 });
 
 
-
-
 router.get('/reservation-book/:id/:title', (req, res) => {
-  Book.find({ _id: req.params.id })
-    .then(function (book) {
-      res.render('reservation-book', { title: req.params.title, quantity: req.params.quantity, book: book[0] })
-    })
-    .catch((err) => {
-      res.render('error', { title: 'Error 404', message: 'File not found ! 404' });
-    })
-
+  if (req.user) {
+    Book.find({ _id: req.params.id })
+      .then(function (book) {
+        res.render('reservation-book', { title: req.params.title, quantity: req.params.quantity, book: book[0] })
+      })
+      .catch((err) => {
+        res.render('error', { title: 'Error 404', message: 'File not found ! 404' });
+      })
+  } else {
+    res.redirect('/');
+  }
 });
-
-
-
 
 
 router.post('/cancel-reservation', (req, res) => {
@@ -47,9 +42,6 @@ router.post('/cancel-reservation', (req, res) => {
       Book.findById(reservation.idBook, (err, book) => {
         if (err) throw err;
         if (book == null) {
-
-          //////////// //*WORKING *////////////////
-
           let bookObj = {
             name: reservation.nameBook,
             description: reservation.description,
@@ -68,15 +60,7 @@ router.post('/cancel-reservation', (req, res) => {
             .catch((err) => {
               res.json('not saved')
             })
-
- 
-
-
-
         } else if (book) {
- 
-
-
           Book.findOneAndUpdate({ _id: book._id },
             {
               $set: {
@@ -90,20 +74,10 @@ router.post('/cancel-reservation', (req, res) => {
               res.send('complete')
             })
           )
-
         }
-
       });
-
-
-
-
-
     }
   });
-
-
-
 });
 
 
@@ -111,57 +85,42 @@ router.post('/cancel-reservation', (req, res) => {
 
 
 router.post('/reservation-book', (req, res) => {
-  var quantity = req.body.reservation.quantity - 1;
-  delete req.body.reservation['quantity'];
+  if (req.user) {
+    var quantity = req.body.reservation.quantity - 1;
+    delete req.body.reservation['quantity'];
 
-  req.body.reservation.idUser = req.user._id;
-  var reservation = new Reservation(req.body.reservation);
+    req.body.reservation.idUser = req.user._id;
+    var reservation = new Reservation(req.body.reservation);
 
-  reservation.save()
-    .then(function (reservations) {
-      if (quantity >= 1) {
-
-
-
-        Book.findOneAndUpdate({ _id: req.body.reservation.idBook },
-          {
-            $set: {
-              quantity: quantity
-            }
-          },
-          {
-            upsert: true
-          },
-          ((err, newUser) => {
-            if (err) res.send('errror')
-            else {
-              res.json('Zarezerwowano książke')
-            }
-          })
-        )
-
-
-
-
-      } else {
-
-        Book.findByIdAndRemove(req.body.reservation.idBook, function (err) {
-          console.log('deleted')
-        });
-
-
-
-
-      }
-
-
-
-
-    })
-
-    .catch((err) => {
-      res.json('not saved')
-    })
+    reservation.save()
+      .then(function (reservations) {
+        if (quantity >= 1) {
+          Book.findOneAndUpdate({ _id: req.body.reservation.idBook },
+            {
+              $set: {
+                quantity: quantity
+              }
+            },
+            {
+              upsert: true
+            },
+            ((err, newUser) => {
+              if (err) res.send('errror')
+              else {
+                res.json('Zarezerwowano książke')
+              }
+            })
+          )
+        } else {
+          Book.findByIdAndRemove(req.body.reservation.idBook, function (err) {
+            console.log('deleted')
+          });
+        }
+      })
+      .catch((err) => {
+        res.json('not saved')
+      })
+  }
 });
 
 module.exports = router;

@@ -14,75 +14,108 @@
 </head>
 
 <body ng-app="app" ng-controller="addBookCtrl" ng-init="init()">
-  <div class="container"> 
+  <div class="container">
 
     <% include partials/header.ejs %>
 
 
-    <!-- LIST BOOKS -->
+      <!-- ADDING BOOK -->
 
-    <main>
- 
- 
-
-      <div class="main-wrapper">
- 
-      </div>
+      <main>
 
 
 
+        <div class="main-wrapper">
+          <div class="row">
+            <div class="col-md-5 center-block">
+              <form name="addBookFrm" class="addBookFrm" novalidate>
+
+                <div class="form-group" ng-class="{ 'has-error': addBookFrm.name.$invalid && addBookFrm.name.$touched }">
+                  <label for="">Nazwa</label>
+                  <span ng-if="addBookFrm.name.$touched && addBookFrm.name.$error.required">Pole jest wymagane</span>
+                  <span ng-show="addBookFrm.name.$touched && addBookFrm.name.$error.minlength">Za krótka nazwa</span>
+                  <span ng-show="addBookFrm.name.$touched && addBookFrm.name.$error.maxlength">Za długa nazwa</span>
+                  <input type="text" class="form-control" name="name" ng-model="book.name" ng-required="true" ng-minlength="2" ng-maxlength="202">
+                </div>
 
 
-      <form>
 
-        <div class="form-group">
-          <label for="">Nazwa</label>
-          <input type="text" class="form-control" name="name" ng-model="book.name">
+
+                <div class="form-group" ng-class="{ 'has-error': addBookFrm.publishingHouse.$invalid && addBookFrm.publishingHouse.$touched }">
+                  <label for="">Wydawnictwo</label>
+                  <span ng-if="addBookFrm.publishingHouse.$touched && addBookFrm.publishingHouse.$error.required">Pole jest wymagane</span>
+                  <span ng-show="addBookFrm.publishingHouse.$touched && addBookFrm.publishingHouse.$error.minlength">Za krótka nazwa wydawnictwa</span>
+                  <span ng-show="addBookFrm.publishingHouse.$touched && addBookFrm.publishingHouse.$error.maxlength">Za długa nazwa wydawnictwa</span>
+                  <input type="text" class="form-control" name="publishingHouse" ng-model="book.publishingHouse" ng-required="true" ng-minlength="2"
+                    ng-maxlength="100">
+                </div>
+
+
+
+
+                <div class="form-group" ng-class="{ 'has-error': addBookFrm.quantity.$invalid && addBookFrm.quantity.$touched }">
+                  <label for="">Ilość</label>
+                  <span ng-if="addBookFrm.quantity.$touched && addBookFrm.quantity.$error.required">Pole jest wymagane</span>
+                  <span ng-show="addBookFrm.quantity.$touched && addBookFrm.quantity.$error.maxlength">Podana ilość jest za długa</span>
+                  <input type="number" class="form-control" name="quantity" ng-model="book.quantity" ng-required="true" ng-maxlength="3">
+                </div>
+
+
+
+                <div class="form-group" ng-class="{ 'has-error': addBookFrm.year.$invalid && addBookFrm.year.$touched }">
+                  <label for="">Rok</label>
+                  <span ng-if="addBookFrm.year.$touched && addBookFrm.year.$error.required">Pole jest wymagane</span>
+                  <span ng-show="addBookFrm.year.$touched && addBookFrm.year.$error.minlength">Podany rok jest za krótki</span>
+                  <span ng-show="addBookFrm.year.$touched && addBookFrm.year.$error.maxlength">Podany rok jest za długi</span>
+                  <input type="number" class="form-control" name="year" ng-model="book.year" ng-required="true" ng-minlength="4" ng-maxlength="4">
+                </div>
+
+
+
+                <div class="form-group" ng-class="{ 'has-error': addBookFrm.sites.$invalid && addBookFrm.sites.$touched }">
+                  <label for="">Ilość stron</label>
+                  <span ng-if="addBookFrm.sites.$touched && addBookFrm.sites.$error.required">Pole jest wymagane</span>
+                  <span ng-show="addBookFrm.sites.$touched && addBookFrm.sites.$error.maxlength">Ilość stron jest za długa</span>
+                  <input type="number" class="form-control" name="sites" ng-model="book.sites" ng-required="true" ng-maxlength="4">
+                </div>
+
+
+
+                <div class="form-group" ng-class="{ 'has-error': addBookFrm.description.$invalid && addBookFrm.description.$touched }">
+                  <label for="">Opis</label>
+                  <span ng-if="addBookFrm.description.$touched && addBookFrm.description.$error.required">Pole jest wymagane</span>
+                  <span ng-show="addBookFrm.description.$touched && addBookFrm.description.$error.minlength">Za krótki opis</span>
+                  <span ng-show="addBookFrm.description.$touched && addBookFrm.description.$error.maxlength">Za długi opis</span>
+                  <textarea name="description" cols="4" rows="3" class="form-control" ng-model="book.description" placeholder="Napisz wiadomość..."
+                    ng-required="true" ng-minlength="2" ng-maxlength="255"></textarea>
+                </div>
+
+                <button class="btn btn-success" ng-click="addBook(book)" ng-disabled="addBookFrm.$invalid">Dodaj</button>
+
+              </form>
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-            <label for="">Opis</label>
-            <input type="text" class="form-control" name="description" ng-model="book.description">
-          </div>
-  
-          <div class="form-group">
-              <label for="">Wydawnictwo</label>
-              <input type="text" class="form-control" name="publishingHouse" ng-model="book.publishingHouse">
-            </div>
-    
-          <div class="form-group">
-              <label for="">Ilość</label>
-              <input type="number" class="form-control" name="quantity" ng-model="book.quantity">
-            </div>
-    
-            <div class="form-group">
-                <label for="">Rok</label>
-                <input type="number" class="form-control" name="year" ng-model="book.year">
-              </div>
-
-              <div class="form-group">
-                  <label for="">Ilość stron</label>
-                  <input type="number" class="form-control" name="sites" ng-model="book.sites">
-                </div>
-      
-    
-            <button class="btn btn-success" ng-click="addBook(book)">Dodaj</button>
-  
-      </form>
 
 
- 
-      </div>
-    </main>
+
+
+
+
+
+
+  </div>
+  </main>
   </div>
 
 
 
-<% include partials/footer.ejs %>
+  <% include partials/footer.ejs %>
 
 
 
-<script src="/javascripts/controllers/addBookController.js"></script>
+    <script src="/javascripts/controllers/addBookController.js"></script>
 </body>
 
 </html>

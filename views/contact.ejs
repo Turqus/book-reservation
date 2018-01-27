@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css' />
+</head>
+
+<body ng-app="app" ng-controller="ContactCtrl" ng-init="init()">
+  <div class="container">
+
+    <% include partials/header.ejs %>
+      <!-- RESERVATION BOOKS -->
+      <main>
+
+        <div class="reservation-wrapper">
+          <div class="reservation-wrapper__books">
+
+            <div class="row">
+              <div class="col-md-4 center-block">
+                <form  name="contactFrm" novalidate class="contact-form"> 
+
+                  <h3>Formularz kontaktowy</h3>
+
+                  <div class="form-group"  ng-class="{ 'has-error': contactFrm.name.$invalid && contactFrm.name.$touched }">
+                      <label for="">Imię i Nazwisko</label>
+
+                      <span ng-if="contactFrm.name.$touched && contactFrm.name.$error.required">Pole jest wymagane</span>
+                      <span ng-show="contactFrm.name.$touched && contactFrm.name.$error.minlength">Za krótkie imię i nazwisko</span>
+                      <span ng-show="contactFrm.name.$touched && contactFrm.name.$error.maxlength">Za długie imię i nazwisko</span>
+
+                      <input type="text" class="form-control" name="name" ng-model="contact.name" placeholder="np. Adam Kowalski..." ng-required="true"
+                      ng-minlength="2" ng-maxlength="55">
+                    </div>
+
+                  <div class="form-group" ng-class="{ 'has-error': contactFrm.email.$invalid && contactFrm.email.$touched }">
+                    <label for="">Twój Adres E-mail</label>
+ 
+                    <span ng-if="contactFrm.email.$touched && contactFrm.email.$error.required">Pole jest wymagane</span>
+                    <span ng-show="contactFrm.email.$touched && contactFrm.email.$error.email">Adres e-mail nie jest poprawny</span>
+
+                    <input type="email" name="email" class="form-control"  ng-model="contact.email" placeholder="np. adamkowalski@o2.pl..." ng-required="true">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Wiadomość</label>
+
+                    <span ng-if="contactFrm.message.$touched && contactFrm.message.$error.required">Pole jest wymagane</span>
+                    <span ng-show="contactFrm.message.$touched && contactFrm.message.$error.minlength">Za krótka wiadomość</span>
+                    <span ng-show="contactFrm.message.$touched && contactFrm.message.$error.maxlength">Za długa wiadomość</span>
+
+                    <textarea name="message" cols="4" rows="3" class="form-control" ng-model="contact.message" placeholder="Napisz wiadomość..." ng-required="true"
+                    ng-minlength="2" ng-maxlength="255"></textarea>
+                  </div>
+
+                  <button class="btn btn-success" ng-click="sendMessage(contact)"  ng-disabled="contactFrm.$invalid">Wyślij</button>
+                </form>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </main>
+  </div>
+
+
+
+  <% include partials/footer.ejs %>
+
+    <script src="/javascripts/controllers/ContactController.js"></script>
+</body>
+
+</html>

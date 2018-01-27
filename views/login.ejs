@@ -33,15 +33,15 @@
                   </div>
                   <% } %>
     
-                    <form name="login" action="/login" method="post" class="validateInfo" novalidate>
-                      <form-group class="reg-form"  ng-class="{ 'has-error': login.username.$invalid && login.username.$touched }">
-                        <label for="">Nazwa</label>
+                    <form name="login" class="loginFrm" action="/login" method="post"  novalidate>
+                      <div class="form-group" ng-class="{ 'has-error': login.username.$invalid && login.username.$touched }">
+                        <label for="">Login</label>
                         <span ng-if="login.username.$touched && login.username.$error.required">Login jest wymagany</span>
                         <span ng-show="login.username.$touched && login.username.$error.maxlength">Za długi login</span>
                         <input type="text" class="form-control" ng-model="username" name="username" placeholder="Wprowadź login..." ng-required="true" maxlength="20">
                       </form-group>
     
-                      <form-group class="reg-form"  ng-class="{ 'has-error': login.password.$invalid && login.password.$touched }">
+                      <div class="form-group" ng-class="{ 'has-error': login.password.$invalid && login.password.$touched }">
                         <label for="">Hasło</label>
                         <span ng-if="login.password.$touched && login.password.$error.required">Hasło jest wymagane</span>
                         <span ng-show="login.password.$touched && login.password.$error.minlength">Za krótkie hasło</span>

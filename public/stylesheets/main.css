@@ -35,13 +35,11 @@ h3 {
 .site-nav {
   display: flex; }
   .site-nav-left-wrapper {
-    width: 50%;
+    width: 30%;
     padding: 5px 0px;
     margin-left: 10px; }
   .site-nav-right-wrapper {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
+    width: 70%;
     padding: 5px 0px; }
     .site-nav-right-wrapper span {
       margin-right: 10px; }
@@ -97,18 +95,38 @@ h3 {
 .col-md-10 {
   word-wrap: break-word; }
 
-.login {
+.loginFrm {
   margin-top: 30px;
   height: 37.8vh; }
-  .login h1 {
+  .loginFrm .form-group input {
+    margin-bottom: 10px; }
+  .loginFrm h1 {
     text-align: center; }
-  .login button {
+  .loginFrm button {
     margin-top: 15px; }
-  .login p {
+  .loginFrm p {
     margin-top: 70px; }
+
+.address {
+  margin-top: 20px; }
+  .address address {
+    font-size: 25px; }
 
 .spg-between {
   margin-bottom: 25px; }
+
+.contact-form {
+  margin: 30px 0 40px 0; }
+  .contact-form h3 {
+    margin-bottom: 30px; }
+  .contact-form textarea {
+    max-width: 100%; }
+
+.addBookFrm {
+  margin: 30px 0 30px 0; }
+
+.registerFrm {
+  margin: 30px 0 130px 0; }
 
 .reservation-wrapper__books {
   padding: 20px; }
