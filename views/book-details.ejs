@@ -14,57 +14,46 @@
 </head>
 
 <body ng-app="app">
-  <div class="container"  ng-controller="BookDetailsCtrl" ng-init="init('<%= JSON.stringify(book) %>')"> 
+  <div class="container" ng-controller="BookDetailsCtrl" ng-init="init('<%= JSON.stringify(book) %>')">
 
     <% include partials/header.ejs %>
 
-
-    <!-- ADDED LAST THREE BOOKS -->
-
-    <main>
-      <div class="row">
-        <div class="col-md-12 hg-main">
+      <main>
+        <div class="row">
+          <div class="col-md-12 hg-main">
             <h1>Informacje o Książce</h1>
+          </div>
         </div>
-      </div> 
- 
-      <div class="main-wrapper">
-        <div class="main-wrapper__books">
-          <div class="row main-wrapper__item">
-            <div class="col-md-2 main-wrapper__image">
-              <img src="/images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
-            </div>
-            <div class="col-md-10">
-              <div class="main-wrapper__description">
-                  <p>Tytuł: <b>{{book.name}}</b></p>
+
+        <div class="main-wrapper">
+          <div class="main-wrapper__books">
+            <div class="row main-wrapper__item">
+              <div class="col-md-2 main-wrapper__image">
+                <img src="/images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
+              </div>
+              <div class="col-md-10">
+                <div class="main-wrapper__description">
+                  <p>Tytuł:
+                    <b>{{book.name}}</b>
+                  </p>
                   <p>Wydawnictwo: {{book.publishingHouse}} </p>
                   <p>Rok Wydania: {{book.year}} </p>
                   <p>Ilość Stron: {{book.sites}} </p>
                   <p>Ilość Dostępnych Książek: {{book.quantity}} </p>
                   <p>Opis: {{book.description}} </p>
                   <a href="/reservation-book/{{book._id}}/{{book.name}}" class="btn btn-info">Zarezerwuj</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-
- 
- 
-
-
- 
-    </main>
+      </main>
   </div>
 
+  <% include partials/footer.ejs %>
 
 
-<% include partials/footer.ejs %>
-
-
-
-<script src="/javascripts/controllers/BookDetailsController.js"></script>
+    <script src="/javascripts/controllers/BookDetailsController.js"></script>
 </body>
 
 </html>

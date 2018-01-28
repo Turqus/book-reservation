@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
-
 // login module 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -12,17 +10,12 @@ var passport = require('passport');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-
-
 // model
 var User = require('../model/user.model');
 
 
 
 router.post('/registerUser', function (req, res, next) {
-
-    console.log('dadada');
-
   req.check('username', 'Login jest wymagany').notEmpty();
   req.check('email', 'Email jest wymagany').isEmail();
   req.check('password', 'Hasło jest wymagane').isLength({ min: 4 }).equals(req.body.confirmPassword);
@@ -111,9 +104,6 @@ router.get('/logout', function (req, res) {
   req.flash('success_msg', 'Zostałeś wylogowany.');
   res.redirect('/');
 })
-
-
-
 
 
 module.exports = router;

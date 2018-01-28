@@ -1,4 +1,4 @@
-<header>
+ <header>
   <div class="row">
     <div class="col-md-12">
       <div class="logo">
@@ -6,39 +6,77 @@
       </div>
     </div>
   </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Strona Główna</a>
+      </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <nav class="site-nav">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-          <div class="site-nav-left-wrapper">  
-                <a href="/">Strona Główna</a> 
-            </div>
-          <div class="site-nav-right-wrapper"> 
-              <a href="/events">Wydarzenia</a>
-              <a href="/about-library">O bibliotece</a>
-              <a href="/contact">Kontakt</a>
-              <a href="/map">Jak dojechać</a>
-          <a href="/books">Lista Książek</a>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/events">Wydarzenia</a>
+          </li>
+          <li>
+            <a href="/about-library">O bibliotece</a>
+          </li>
+          <li>
+            <a href="/contact">Kontakt</a>
+          </li>
+          <li>
+            <a href="/map">Jak dojechać</a>
+          </li>
+          <li>
+            <a href="/books">Lista Książek</a>
+          </li>
           <% if (!user) { %>
-            <a href="/login" class="site-nav__link pull-right">Zaloguj się</a>
-            <a href="/register" class="site-nav__link  pull-right">Zarejestruj się</a>
-
+            <li>
+              <a href="/login" class="site-nav__link pull-right">Zaloguj się</a>
+            </li>
+            <li>
+              <a href="/register" class="site-nav__link  pull-right">Zarejestruj się</a>
+            </li>
             <% } else { %>
               
-              <a href="/reserved-books">Zarezerwowane książki</a>
+          <% if (user.role == "librarian") { %>
 
- 
-                <span>Zalogowany:
-                <b>
-                  <%= user.username %>
-                </b> 
-              </span>
-
-              <a href="/logout">Wyloguj</a>
+            <li>
+                <a href="/add-book">Dodaj</a>
+              </li>
+            
+            <% }  %>
+              <li>
+                <a href="/reserved-books">Zarezerwowane książki</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span>Zalogowany:
+                    <b>
+                      <%= user.username %>
+                    </b>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="/logout">Wyloguj</a>
+              </li>
               <% } %>
-        </div>
-      </nav>
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-  </div>
+    <!-- /.container-fluid -->
+  </nav>
 </header>

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+//models
 var Book = require('../model/book.model');
 var Reservation = require('../model/reservation.model');
 
@@ -37,8 +38,6 @@ router.post('/cancel-reservation', (req, res) => {
   Reservation.findByIdAndRemove(reservation._id, function (err) {
     if (err) throw err;
     else {
-
-
       Book.findById(reservation.idBook, (err, book) => {
         if (err) throw err;
         if (book == null) {

@@ -14,101 +14,76 @@
 </head>
 
 <body ng-app="app">
-  <div class="container"  ng-controller="ListBooksCtrl" ng-init="init()"> 
+  <div class="container" ng-controller="ListBooksCtrl" ng-init="init()">
 
     <% include partials/header.ejs %>
 
-
-
-    
-
-    <!-- ADDED LAST THREE BOOKS -->
-
-    <main>
-      <div class="row">
-        <div class="col-md-12 hg-main">
+      <main>
+        <div class="row">
+          <div class="col-md-12 hg-main">
             <h1>Ostatnio dodane książki</h1>
+          </div>
         </div>
-      </div>
 
-      <div class="main-wrapper">
-        <div class="main-wrapper__books">
+        <div class="main-wrapper">
+          <div class="main-wrapper__books">
+            <div class="row main-wrapper__item" ng-repeat="book in books | limitTo:2">
+              <div class="col-md-2 col-xs-4 col-sm-3 main-wrapper__image">
+                <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
+              </div>
 
-
-
-
-
-          <div class="row main-wrapper__item" ng-repeat="book in books | limitTo:2">
-
-              <!-- col-md-2 -->
-            <div class="col-md-2 main-wrapper__image">
-              <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
-            </div>
-
-              <!-- col-md-10 -->
-            <div class="col-md-10 main-wrapper__description">
-          
-                <p>Tytuł: <b>{{book.name}}</b></p>
+              <div class="col-md-10 main-wrapper__description">
+                <p>Tytuł:
+                  <b>{{book.name}}</b>
+                </p>
                 <p>Wydawnictwo: {{book.publishingHouse}} </p>
                 <p>Rok Wydania: {{book.year}} </p>
                 <p>Ilość Stron: {{book.sites}} </p>
                 <p>Ilość Dostępnych Książek: {{book.quantity}} </p>
                 <p>Opis: {{book.description}} </p>
-                  
-               <a href="/book/details/{{book._id}}" class="btn btn-success">Zobacz</a>
-            
+
+                <a href="/book/details/{{book._id}}" class="btn btn-success">Zobacz</a>
+                <a href="/reservation-book/{{book._id}}/{{book.name}}" class="btn btn-info">Zarezerwuj</a>
+              </div>
             </div>
-            
           </div>
-
-
-
-
-
         </div>
-      </div>
 
 
- 
- 
+        <div class="main-wrapper__aboutUs hg-center">
+          <h1>O nas</h1>
+          <div class="aboutUs-wrapper">
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="aboutUs-hg">Profesjonalność</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+              </div>
 
-
-      <!-- ABOUT US -->
-      <div class="main-wrapper__aboutUs hg-center">
-        <h1>O nas</h1>
-        <div class="aboutUs-wrapper">
-          <div class="row">
-            <div class="col-md-4">
-              <h4 class="aboutUs-hg">Profesjonalność</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
-                mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
-            </div>
-
-            <div class="col-md-4">
+              <div class="col-md-4">
                 <h4 class="aboutUs-hg">Oryginalność</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
-                mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
-            </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+              </div>
 
-            <div class="col-md-4">
+              <div class="col-md-4">
                 <h4 class="aboutUs-hg">Miła obsługa</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
-                mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies arcu dui. Praesent sit amet aliquam
+                  mauris. Aliquam faucibus dignissim justo sed suscipit. Curabitur egestas, mi et consectetur viverra.</p>
+              </div>
             </div>
           </div>
         </div>
-
-      </div>
-    </main>
+      </main>
   </div>
 
 
 
-<% include partials/footer.ejs %>
+  <% include partials/footer.ejs %>
 
 
 
-<script src="/javascripts/controllers/ListBooksController.js"></script>
+    <script src="/javascripts/controllers/ListBooksController.js"></script>
 </body>
 
 </html>

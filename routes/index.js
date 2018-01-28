@@ -2,53 +2,40 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Wypożyczalnia Książek' });
 });
 
-/* GET home page. */
 router.get('/login', function(req, res, next) {
   if(req.user) res.redirect('/');
   else res.render('login', { title: 'Logowanie', error_msg: [] });
 });
 
-/* GET home page. */
 router.get('/register', function(req, res, next) {
   if(req.user) res.redirect('/');
   else res.render('register', { title: 'Rejestracja', error_msg: [] });
 });
 
 
-
-/* GET home page. */
 router.get('/events', function(req, res, next) {
   res.render('events', { title: 'Wydarzenia', error_msg: [] });
 });
 
 
-
-/* GET home page. */
 router.get('/about-library', function(req, res, next) {
   res.render('about-library', { title: 'O bibliotece', error_msg: [] });
 });
 
 
-
-/* GET home page. */
 router.get('/map', function(req, res, next) {
   res.render('map', { title: 'O bibliotece', error_msg: [] });
 });
 
-/* GET home page. */
 router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'O bibliotece', error_msg: [] });
 });
 
 router.post('/send-message', (req, res)=> {
-  console.log(req.body)
-
-
   var message = req.body.contact;
  
   var transporter = nodemailer.createTransport({
@@ -75,8 +62,6 @@ router.post('/send-message', (req, res)=> {
       res.json('Wiadomość została wysłana.');
     }
   });
-
-
-
 });
+
 module.exports = router;

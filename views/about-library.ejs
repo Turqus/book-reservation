@@ -17,41 +17,26 @@
   <div class="container" ng-controller="ListBooksCtrl" ng-init="init()">
 
     <% include partials/header.ejs %>
-
-
-      <!-- ADDED LAST THREE BOOKS -->
-
       <main>
         <div class="row">
           <div class="col-md-12 hg-main">
             <h1>O bibliotece</h1>
           </div>
         </div>
-
-        <div class="main-wrapper">
+        <div class="main-wrapper sp-books">
           <div class="main-wrapper__books">
-
-
-
-
-
             <div class="row main-wrapper__item">
               <div class="col-md-3 main-wrapper__image">
                 <img src="images/library.jpg" alt="Library" class="img-responsive">
               </div>
-
               <div class="col-md-9 main-wrapper__description">
-
                 <p>
-
-
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a erat non erat maximus dapibus. Vivamus pulvinar non massa nec
                   facilisis. In maximus molestie felis eget sollicitudin. Sed mattis dui eu vehicula auctor. Maecenas at
                   leo scelerisque, posuere ante ac, pellentesque urna. Vestibulum ac laoreet nulla, a commodo lectus. Mauris
                   quis vulputate ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vulputate neque ac neque
                   commodo, id dictum enim iaculis. Donec aliquam consectetur tellus vehicula hendrerit.
                 </p>
-
                 <p>
                   Sed hendrerit vel magna non aliquet. Vivamus sodales suscipit malesuada. Vivamus dignissim justo mi, eu consectetur massa
                   tristique ac. Aliquam ornare arcu quis orci ullamcorper ultricies. Nulla accumsan hendrerit justo, id eleifend
@@ -70,31 +55,16 @@
                   sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis ultrices convallis ligula,
                   eu lobortis mauris feugiat in.
                 </p>
-
-
               </div>
             </div>
-
-
-
-
-
           </div>
         </div>
-
-
-
-
-
       </main>
   </div>
 
 
 
   <% include partials/footer.ejs %>
-
-
-
     <script src="/javascripts/controllers/ListBooksController.js"></script>
 </body>
 

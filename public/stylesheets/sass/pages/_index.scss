@@ -5,6 +5,11 @@
 
   &__books {
     padding: 10px;
+
+  }
+
+  .search {
+    margin: 0 0 30px 0;
   }
 
   &__description {   
@@ -13,8 +18,7 @@
   max-width: 100%; 
 
   a { 
-    margin-top: 10px;
-    width: 90px;
+    margin-top: 10px; 
   }
   }
 

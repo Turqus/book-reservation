@@ -2,14 +2,17 @@
   &__books {
     padding: 20px;
   }
+
+  margin-bottom: 205px;
 }
 
 .reservation-form {
-  span {
+  span:first-child {
     display: block;
-  }
-  span:nth-child(2) {
-    margin-bottom: 10px;
+  } 
+
+  .form-group {
+    margin-top: 15px;
   }
   textarea {
     max-width: 100%;

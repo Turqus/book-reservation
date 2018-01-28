@@ -17,43 +17,47 @@
   <div class="container">
 
     <% include partials/header.ejs %>
-
-    <!-- LIST BOOKS -->
-
-    <main>
+      <main>
         <div class="row">
           <div class="col-md-12 hg-main">
-              <h1>Lista książek</h1>
+            <h1>Lista książek</h1>
           </div>
         </div>
 
+        <main>
+          <div class="main-wrapper">
+            <div class="main-wrapper__books">
 
-      <!-- LIST BOOKS -->
-      <main>
-        <div class="main-wrapper">
-          <div class="main-wrapper__books">
-
-            <div class="row spg-between" ng-repeat="book in books">
-              <div class="col-md-2 main-wrapper__image">
-                <img src="images/book.jpg" alt="książka pt. {{book.name}}" class="img-responsive">
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" ng-model="search" class="form-control search" placeholder="Wyszukaj książkę...">
+                </div>
               </div>
 
-              <div class="col-md-10">
-                <div class="main-wrapper__description">
-                  <h3>Tytuł: {{book.name}}</h3>
-                  <p>{{book.description}}</p>
-                  <p>Ilość: {{book.quantity}}</p>
-                  <a href="/reservation-book/{{book._id}}/{{book.name}}" class="btn btn-info">Zarezerwuj</a>
-                  <a href="/book/details/{{book._id}}" class="btn btn-success">Zobacz</a>
+              <div class="row spg-between" ng-repeat="book in books | filter : search">
+                <div class="col-md-2 col-xs-4 col-sm-3 main-wrapper__image">
+                  <img src="images/book.jpg" alt="książka pt. {{book.name}}" class="img-responsive">
+                </div>
+
+                <div class="col-md-10">
+                  <div class="main-wrapper__description">
+                    <p>Tytuł:
+                      <b>{{book.name}}</b>
+                    </p>
+                    <p>Wydawnictwo: {{book.publishingHouse}} </p>
+                    <p>Rok Wydania: {{book.year}} </p>
+                    <p>Ilość Stron: {{book.sites}} </p>
+                    <p>Ilość Dostępnych Książek: {{book.quantity}} </p>
+                    <p>Opis: {{book.description}} </p>
+
+                    <a href="/book/details/{{book._id}}" class="btn btn-success">Zobacz</a>
+                    <a href="/reservation-book/{{book._id}}/{{book.name}}" class="btn btn-info">Zarezerwuj</a>
+                  </div>
                 </div>
               </div>
             </div>
-
-
           </div>
-        </div>
-
-      </main>
+        </main>
   </div>
 
 

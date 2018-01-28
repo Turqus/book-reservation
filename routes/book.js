@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
 var Book = require('../model/book.model');
 
 
 router.get('/list-books', (req, res) => {
- 
-
   Book.find({})
     .then((books) => {
       res.json(books);
@@ -16,18 +13,13 @@ router.get('/list-books', (req, res) => {
     })
 });
 
-
-/* GET home page. */
 router.get('/books', function (req, res, next) {
   res.render('books', { title: 'Lista Książek' });
 });
 
-
-/* GET home page. */
 router.get('/add-book', function (req, res, next) {
   res.render('addBook', { title: 'Dodaj Książke' });
 });
-
 
 router.post('/add-book', (req, res) => { 
   var book = new Book(req.body.book);
@@ -41,14 +33,11 @@ router.post('/add-book', (req, res) => {
     })
 });
 
-
-/* GET home page. */
 router.get('/reserved-books', function (req, res, next) {
   if(req.user) res.render('reserved-books', { title: 'Zarezerwowane książki' });
   else res.redirect('/');
 });
 
-/* GET home page. */
 router.get('/book/details/:id', function (req, res, next) {
   Book.find({_id : req.params.id})
   .then(function (book) { 

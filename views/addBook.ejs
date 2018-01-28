@@ -18,13 +18,7 @@
 
     <% include partials/header.ejs %>
 
-
-      <!-- ADDING BOOK -->
-
       <main>
-
-
-
         <div class="main-wrapper">
           <div class="row">
             <div class="col-md-5 center-block">
@@ -35,11 +29,9 @@
                   <span ng-if="addBookFrm.name.$touched && addBookFrm.name.$error.required">Pole jest wymagane</span>
                   <span ng-show="addBookFrm.name.$touched && addBookFrm.name.$error.minlength">Za krótka nazwa</span>
                   <span ng-show="addBookFrm.name.$touched && addBookFrm.name.$error.maxlength">Za długa nazwa</span>
-                  <input type="text" class="form-control" name="name" ng-model="book.name" ng-required="true" ng-minlength="2" ng-maxlength="202">
+                  <input type="text" class="form-control" name="name" ng-model="book.name" ng-required="true" ng-minlength="2" ng-maxlength="202"
+                    placeholder="Wprowadź nazwę...">
                 </div>
-
-
-
 
                 <div class="form-group" ng-class="{ 'has-error': addBookFrm.publishingHouse.$invalid && addBookFrm.publishingHouse.$touched }">
                   <label for="">Wydawnictwo</label>
@@ -47,46 +39,38 @@
                   <span ng-show="addBookFrm.publishingHouse.$touched && addBookFrm.publishingHouse.$error.minlength">Za krótka nazwa wydawnictwa</span>
                   <span ng-show="addBookFrm.publishingHouse.$touched && addBookFrm.publishingHouse.$error.maxlength">Za długa nazwa wydawnictwa</span>
                   <input type="text" class="form-control" name="publishingHouse" ng-model="book.publishingHouse" ng-required="true" ng-minlength="2"
-                    ng-maxlength="100">
+                    ng-maxlength="100" placeholder="Wprowadź nazwę wydawnictwa...">
                 </div>
-
-
-
 
                 <div class="form-group" ng-class="{ 'has-error': addBookFrm.quantity.$invalid && addBookFrm.quantity.$touched }">
                   <label for="">Ilość</label>
                   <span ng-if="addBookFrm.quantity.$touched && addBookFrm.quantity.$error.required">Pole jest wymagane</span>
                   <span ng-show="addBookFrm.quantity.$touched && addBookFrm.quantity.$error.maxlength">Podana ilość jest za długa</span>
-                  <input type="number" class="form-control" name="quantity" ng-model="book.quantity" ng-required="true" ng-maxlength="3">
+                  <input type="number" class="form-control" name="quantity" ng-model="book.quantity" ng-required="true" ng-maxlength="3" placeholder="Wprowadź ilość...">
                 </div>
-
-
 
                 <div class="form-group" ng-class="{ 'has-error': addBookFrm.year.$invalid && addBookFrm.year.$touched }">
                   <label for="">Rok</label>
                   <span ng-if="addBookFrm.year.$touched && addBookFrm.year.$error.required">Pole jest wymagane</span>
                   <span ng-show="addBookFrm.year.$touched && addBookFrm.year.$error.minlength">Podany rok jest za krótki</span>
                   <span ng-show="addBookFrm.year.$touched && addBookFrm.year.$error.maxlength">Podany rok jest za długi</span>
-                  <input type="number" class="form-control" name="year" ng-model="book.year" ng-required="true" ng-minlength="4" ng-maxlength="4">
+                  <input type="number" class="form-control" name="year" ng-model="book.year" ng-required="true" ng-minlength="4" ng-maxlength="4"
+                    placeholder="Wprowadź rok wydania...">
                 </div>
-
-
 
                 <div class="form-group" ng-class="{ 'has-error': addBookFrm.sites.$invalid && addBookFrm.sites.$touched }">
                   <label for="">Ilość stron</label>
                   <span ng-if="addBookFrm.sites.$touched && addBookFrm.sites.$error.required">Pole jest wymagane</span>
                   <span ng-show="addBookFrm.sites.$touched && addBookFrm.sites.$error.maxlength">Ilość stron jest za długa</span>
-                  <input type="number" class="form-control" name="sites" ng-model="book.sites" ng-required="true" ng-maxlength="4">
+                  <input type="number" class="form-control" name="sites" ng-model="book.sites" ng-required="true" ng-maxlength="4" placeholder="Wprowadź ilość stron...">
                 </div>
-
-
 
                 <div class="form-group" ng-class="{ 'has-error': addBookFrm.description.$invalid && addBookFrm.description.$touched }">
                   <label for="">Opis</label>
                   <span ng-if="addBookFrm.description.$touched && addBookFrm.description.$error.required">Pole jest wymagane</span>
                   <span ng-show="addBookFrm.description.$touched && addBookFrm.description.$error.minlength">Za krótki opis</span>
                   <span ng-show="addBookFrm.description.$touched && addBookFrm.description.$error.maxlength">Za długi opis</span>
-                  <textarea name="description" cols="4" rows="3" class="form-control" ng-model="book.description" placeholder="Napisz wiadomość..."
+                  <textarea name="description" cols="4" rows="3" class="form-control" ng-model="book.description" placeholder="Napisz opis książki..."
                     ng-required="true" ng-minlength="2" ng-maxlength="255"></textarea>
                 </div>
 
@@ -96,15 +80,6 @@
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
   </div>
   </main>
   </div>

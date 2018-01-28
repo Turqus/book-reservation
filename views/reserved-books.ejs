@@ -18,9 +18,6 @@
 
     <% include partials/header.ejs %>
 
-
-      <!-- ADDED LAST THREE BOOKS -->
-
       <main>
         <div class="row">
           <div class="col-md-12 hg-main">
@@ -32,7 +29,7 @@
           <div class="main-wrapper__books">
             <div class="row main-wrapper__item" ng-repeat="reservation in reservations">
 
-              <div class="col-md-2 main-wrapper__image">
+              <div class="col-md-2 col-xs-4 col-sm-3 main-wrapper__image">
                 <img src="images/book.jpg" alt="książka pt. Czysty Kod" class="img-responsive">
               </div>
 
@@ -52,7 +49,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1</td>
+                      <td>{{$index +1}}</td>
                       <td>{{reservation.firstname}} {{reservation.surname}}</td>
                       <td>{{reservation.address}}</td>
                       <td>{{reservation.nameBook}}</td>
@@ -71,11 +68,7 @@
       </main>
   </div>
 
-
-
   <% include partials/footer.ejs %>
-
-
 
     <script src="/javascripts/controllers/ReservedBooksController.js"></script>
 </body>
