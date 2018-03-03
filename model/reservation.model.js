@@ -11,7 +11,7 @@ var ReservationSchema = new Schema({
   idBook: { type: Schema.Types.ObjectId, ref: 'Book' },
   idUser: { type: Schema.Types.ObjectId, ref: 'User' },
   nameBook: { type: String, maxlength: 202, required: true },  
-  description: { type: String, maxlength: 202, required: true },  
+  description: { type: String, maxlength: 255, required: true },  
   publishingHouse: { type: String, maxlength: 202, required: true },  
   year: { type: Number, maxlength: 4, required: true },  
   sites: { type: Number, maxlength: 4 },  

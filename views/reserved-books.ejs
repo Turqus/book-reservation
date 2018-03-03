@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-  <script src="/javascripts/angular.js"></script>
-  <script src="/javascripts/app.js"></script>
-  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
-  <link rel='stylesheet' href='/stylesheets/main.css' />
-</head>
+  <% include partials/head.ejs %>
 
 <body ng-app="app">
   <div class="container" ng-controller="ReservedBooksCtrl" ng-init="init()">
@@ -27,6 +15,9 @@
 
         <div class="main-wrapper">
           <div class="main-wrapper__books">
+
+              <h1 class="info" ng-show="{{$index}} === index">{{info}}</h1>
+              <h4 ng-show="reservations.length === 0">Brak zarezerwowanych książek</h4>
             <div class="row main-wrapper__item" ng-repeat="reservation in reservations">
 
               <div class="col-md-2 col-xs-4 col-sm-3 main-wrapper__image">
@@ -56,7 +47,7 @@
                       <td>{{reservation.publishingHouse}}</td>
                       <td>{{reservation.year}}</td>
                       <td>
-                        <button class="btn btn-sm btn-danger" ng-click="cancelReservation(reservation)">Anuluj Rezerwację</button>
+                        <button class="btn btn-sm btn-danger" ng-click="cancelReservation(reservation, $index)">Anuluj Rezerwację</button>
                       </td>
                     </tr>
                   </tbody>

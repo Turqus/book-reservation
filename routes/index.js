@@ -41,13 +41,13 @@ router.post('/send-message', (req, res)=> {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'turqus18@gmail.com',
-      pass: 'Chudy129'
+      user: 'marcinfutyma@gmail.com',
+      pass: 'warjat9131'
     }
   });
  
   var mailOptions = {
-    from: 'turqus18@gmail.com',
+    from: 'marcinfutyma@gmail.com',
     to: message.recipient,
     subject: 'Formularz kontaktowy',
     html: '<b>E-mail Kontaktowy: </b>' + message.email + '<br><br>' + '<b>Imie i Nazwisko: </b>' + message.name + '<br><br>' + '<b>Wiadomość: </b>' + message.message

@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-  <script src="/javascripts/angular.js"></script>
-  <script src="/javascripts/app.js"></script>
-  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
-  <link rel='stylesheet' href='/stylesheets/main.css' />
-</head>
-
-<body ng-app="app" ng-controller="ContactCtrl" ng-init="init()">
+  <% include partials/head.ejs %>
+<body ng-app="app" ng-controller="ContactCtrl">
 
   <div class="container">
     <% include partials/header.ejs %>
@@ -25,7 +12,6 @@
               <div class="col-md-4 center-block">
                 <form name="contactFrm" novalidate class="contact-form">
                   <h3>Formularz kontaktowy</h3>
-
                   <div class="form-group" ng-class="{ 'has-error': contactFrm.name.$invalid && contactFrm.name.$touched }">
                     <label>Imię i Nazwisko</label>
                     <span ng-if="contactFrm.name.$touched && contactFrm.name.$error.required">Pole jest wymagane</span>
@@ -52,6 +38,7 @@
                   </div>
 
                   <button class="btn btn-success" ng-click="sendMessage(contact)" ng-disabled="contactFrm.$invalid">Wyślij</button>
+                  <span class="info">{{info}}</span>
 
                 </form>
               </div>

@@ -7,9 +7,6 @@
         $scope.init = (book) => { 
             $scope.book = JSON.parse(book);
         }
-
-
-
     }
 
 

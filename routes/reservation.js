@@ -27,6 +27,7 @@ router.get('/reservation-book/:id/:title', (req, res) => {
         res.render('error', { title: 'Error 404', message: 'File not found ! 404' });
       })
   } else {
+    req.flash('error_msg', 'Nie jesteś zalogowany, proszę wpierw się zalogować.');
     res.redirect('/');
   }
 });
@@ -57,7 +58,7 @@ router.post('/cancel-reservation', (req, res) => {
               res.json(book)
             })
             .catch((err) => {
-              res.json('not saved')
+              res.json('Nie została zapisana.')
             })
         } else if (book) {
           Book.findOneAndUpdate({ _id: book._id },
@@ -70,7 +71,7 @@ router.post('/cancel-reservation', (req, res) => {
               upsert: true
             },
             ((complete) => {
-              res.send('complete')
+              res.json('Rezerwacja została anulowana.');
             })
           )
         }
@@ -83,17 +84,16 @@ router.post('/cancel-reservation', (req, res) => {
 
 
 
-router.post('/reservation-book', (req, res) => {
-  if (req.user) {
+router.post('/reservation-book', (req, res) => { 
+  if (req.user) { 
     var quantity = req.body.reservation.quantity - 1;
     delete req.body.reservation['quantity'];
 
     req.body.reservation.idUser = req.user._id;
-    var reservation = new Reservation(req.body.reservation);
-
+    var reservation = new Reservation(req.body.reservation); 
     reservation.save()
       .then(function (reservations) {
-        if (quantity >= 1) {
+        if (quantity >= 1) { 
           Book.findOneAndUpdate({ _id: req.body.reservation.idBook },
             {
               $set: {
@@ -110,16 +110,15 @@ router.post('/reservation-book', (req, res) => {
               }
             })
           )
-        } else {
-          Book.findByIdAndRemove(req.body.reservation.idBook, function (err) {
-            console.log('deleted')
+        } else { 
+          Book.findByIdAndRemove(req.body.reservation.idBook, function (err) { 
           });
         }
       })
       .catch((err) => {
-        res.json('not saved')
+        console.log(err);
       })
-  }
+  }  
 });
 
 module.exports = router;

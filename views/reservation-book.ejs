@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-  <script src="/javascripts/angular.js"></script>
-  <script src="/javascripts/app.js"></script>
-  <link href="/stylesheets/sass/vendors/bootstrap.min.css" rel="stylesheet">
-  <link rel='stylesheet' href='/stylesheets/main.css' />
-</head>
+  <% include partials/head.ejs %>
 
 <body ng-app="app" ng-controller="reservationBookCtrl" ng-init="init('<%= JSON.stringify(book) %>')">
   <div class="container">
@@ -62,7 +50,7 @@
                       ng-maxlength="202"></textarea>
                   </div>
 
-                  <button class="btn btn-info" ng-click="reservationBook(reservation)">Zarezerwuj</button>
+                  <button class="btn btn-info" ng-click="reservationBook(reservation)" ng-disabled="reservationBookFrm.$invalid">Zarezerwuj</button>  <span class="info">{{info}}</span>
 
                 </form>
               </div>

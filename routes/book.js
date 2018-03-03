@@ -26,10 +26,10 @@ router.post('/add-book', (req, res) => {
 
   book.save()
     .then(function (calendars) {
-      res.json('saved')
+      res.json('Dodano nową książkę')
     })
     .catch((err) => {
-      res.json('not saved')
+      res.json('Nie dodano nowej książki')
     })
 });
 

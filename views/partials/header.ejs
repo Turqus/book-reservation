@@ -1,4 +1,4 @@
- <header>
+<header>
   <div class="row">
     <div class="col-md-12">
       <div class="logo">
@@ -8,7 +8,6 @@
   </div>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
           aria-expanded="false">
@@ -20,7 +19,6 @@
         <a class="navbar-brand" href="/">Strona Główna</a>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 
@@ -42,41 +40,36 @@
           </li>
           <% if (!user) { %>
             <li>
-              <a href="/login" class="site-nav__link pull-right">Zaloguj się</a>
+              <a href="/login">Zaloguj się</a>
             </li>
             <li>
-              <a href="/register" class="site-nav__link  pull-right">Zarejestruj się</a>
+              <a href="/register">Zarejestruj się</a>
             </li>
             <% } else { %>
-              
-          <% if (user.role == "librarian") { %>
-
-            <li>
-                <a href="/add-book">Dodaj</a>
-              </li>
-            
-            <% }  %>
-              <li>
-                <a href="/reserved-books">Zarezerwowane książki</a>
-              </li>
-              <li>
-                <a href="#">
-                  <span>Zalogowany:
-                    <b>
-                      <%= user.username %>
-                    </b>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="/logout">Wyloguj</a>
-              </li>
-              <% } %>
+              <% if (user.role == "librarian") { %>
+                <li>
+                  <a href="/add-book">Dodaj</a>
+                </li>
+                <% }  %>
+                  <li>
+                    <a href="/reserved-books">Zarezerwowane książki</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span>Zalogowany:
+                        <b>
+                          <%= user.username %>
+                        </b>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout">Wyloguj</a>
+                  </li>
+                  <% } %>
 
         </ul>
       </div>
-      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
   </nav>
 </header>

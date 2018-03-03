@@ -32,12 +32,13 @@ router.post('/registerUser', function (req, res, next) {
   var newUser = {
     username: req.body.username,
     password: req.body.password,
-    email: req.body.email
+    email: req.body.email,
+    role : "user"
   }
 
   if (errors) {
     res.render('register', {
-      errors: errors, error_msg: 'Rejestracja nieudana.', title: 'Rejestracja'
+      errors: errors, error_msg: 'Błędnie wypełnione dane, spróbuj raz jeszcze.', title: 'Rejestracja'
     });
   } else {
     bcrypt.hash(newUser.password, saltRounds, function (err, hash) {

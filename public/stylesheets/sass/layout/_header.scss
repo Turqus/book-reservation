@@ -1,26 +1,4 @@
-// .site-nav {
-
-//   display: flex;
-  
-//   &-left-wrapper {
-//     width: 30%;
-//     padding: 5px 0px;
-//     margin-left: 10px;
-//   }
-
-//   &-right-wrapper { 
-//     span {
-//       margin-right: 10px;
-//     }
-
-//     width: 70%; 
-//     padding: 5px 0px;
-
-//     a {
-//       margin-right: 10px;
-//     }
-//   }
-// }
+ 
 
 .logo {
   min-height: 300px;
@@ -31,10 +9,13 @@
     background-position: center;
   }
 }
+ 
 
-// .site-nav {
-//   background-color: #F8F8F8;
-//   padding: 10px 0;
-//   border-radius: 2px;
-//   border: 1px solid rgb(235, 233, 233);
-// }
+.nav {
+  li {
+    a {
+      
+  font-size: 13px !important;
+    }
+  }
+}
